@@ -1,4 +1,4 @@
-# from kivy.lang import Builder
+from kivy.lang import Builder
 
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
@@ -35,16 +35,17 @@ class MainApp(MDApp):
             readonly=True,
             size_hint=[1, None],
             halign="right",
+            height="80sp",
             font_size='55sp'
         )
         main_layout.add_widget(self.solution)
         buttons = [
             ["", "C", "<-", "^"],
-            ["7", "8", "9", " / "],
-            ["4", "5", "6", " * "],
-            ["1", "2", "3", " - "],
-            ["+/-", "0", ".", " + "],
-            ["", "", "", "="]
+            ["", "", "", " / "],
+            ["7", "8", "9", " * "],
+            ["4", "5", "6", " - "],
+            ["1", "2", "3", " + "],
+            ["+/-", "0", ".", "="]
         ]
         for row in buttons:
             h_layout = MDBoxLayout()
@@ -52,7 +53,8 @@ class MainApp(MDApp):
                 button = MDRectangleFlatButton(
                     text=label,
                     pos_hint={"center_x": 0.5, "center_y": 0.5},
-                    size_hint=(1, 1)
+                    size_hint=(1, 1),
+                    font_size='20sp'
                 )
                 button.bind(on_press=self.on_button_press)
                 h_layout.add_widget(button)
